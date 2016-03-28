@@ -7,5 +7,6 @@
     <orderEntry type="library" name="d3-DefinitelyTyped" level="project" />
     <orderEntry type="library" name="D3Queue" level="project" />
     <orderEntry type="library" name="d3queue" level="project" />
+    <orderEntry type="library" name="d3context" level="project" />
   </component>
 </module>

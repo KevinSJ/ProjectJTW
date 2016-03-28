@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>Journey To the West Relationship Map</title>
 </head>
-
+<link href="CSS/bootstrap.min.css" rel="stylesheet">
 <style>
     .nodetext {
         font-size: 12px;
@@ -20,13 +20,79 @@
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<div id="modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">                        &times;
+                </button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                   aria-expanded="true" aria-controls="collapseOne">
+                                    Who is he/she ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                             aria-labelledby="headingOne">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What did he/she do ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Why do we care ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingThree">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="JS/bootstrap.min.js"></script>
+<script src="JS/d3.min.js" charset="utf-8"></script>
 <script>
-
+    "use strict";
     var width = 600;
     var height = 600;
     var img_w = 77;
     var img_h = 90;
+    var showingText = false;
 
     var svg = d3.select("body").append("svg")
             .attr("width", width)
@@ -44,8 +110,9 @@
                 .nodes(root.nodes)
                 .links(root.edges)
                 .size([width, height])
-                .linkDistance(200)
-                .charge(-1500)
+                .linkDistance(350)
+                .gravity(0.7)
+                .charge(-4500)
                 .start();
 
         var edges_line = svg.selectAll("line")
@@ -64,7 +131,6 @@
                     return d.relation;
                 });
 
-
         var nodes_img = svg.selectAll("image")
                 .data(root.nodes)
                 .enter()
@@ -80,6 +146,15 @@
                         if (edge.source === d || edge.target === d) {
                             return 1.0;
                         }
+                    });
+                })
+                .on('click', function (d) {
+                    d3.select(".modal-title").html(d.name);
+
+                    d3.select("#collapseOne .panel-body").html(d.description);
+
+                    $('#modal').modal({
+                        keyboard: false
                     });
                 })
                 .on("mouseout", function (d, i) {
@@ -158,6 +233,5 @@
     });
 
 </script>
-
 </body>
 </html>
