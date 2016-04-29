@@ -3,6 +3,7 @@
 
 # IntelliJ project files
 .idea
+/node_modules
 out
 gen
 # Created by .ignore support plugin (hsz.mobi)

@@ -8,5 +8,6 @@
     <orderEntry type="library" name="D3Queue" level="project" />
     <orderEntry type="library" name="d3queue" level="project" />
     <orderEntry type="library" name="d3context" level="project" />
+    <orderEntry type="library" name="xiyouji node_modules" level="project" />
   </component>
 </module>
