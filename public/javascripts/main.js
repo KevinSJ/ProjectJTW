@@ -18,7 +18,7 @@ var force = d3.layout.force()
     .nodes(root.nodes)
     .links(root.edges)
     .size([width, height])
-    .linkDistance(350)
+    .linkDistance(450)
     .gravity(0.7)
     .charge(-4500)
     .start();
@@ -56,7 +56,7 @@ var nodes_img = svg.selectAll("image")
             }
         });
     })
-    .on('click', function (d) {
+    /* .on('click', function (d) {
         d3.select(".modal-title").html(d.Name);
 
         d3.select("#collapseOne .panel-body").html(d.Description);
@@ -68,7 +68,7 @@ var nodes_img = svg.selectAll("image")
         $('#modal').modal({
             keyboard: false
         });
-    })
+     })*/
     .on("mouseout", function (d, i) {
         //隐去连接线上的文字
         edges_text.style("fill-opacity", function (edge) {
@@ -143,4 +143,45 @@ force.on("tick", function () {
         return d.y + img_w / 2;
     });
 });
+//Toggle stores whether the highlighting is on
+var toggle = 0;
 
+//Create an array logging what is connected to what
+var linkedByIndex = {};
+for (var i = 0; i < root.nodes.length; i++) {
+    linkedByIndex[i + "," + i] = 1;
+}
+root.edges.forEach(function (d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
+
+//This function looks up whether a pair are neighbours
+function neighboring(a, b) {
+    return linkedByIndex[a.index + "," + b.index];
+}
+
+function connectedNodes() {
+    if (toggle == 0) {
+        //Reduce the opacity of all but the neighbouring nodes
+        var d = d3.select(this).node().__data__;
+        nodes_img.style("opacity", function (o) {
+            return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
+        });
+
+        edges_line.style("opacity", function (o) {
+            return d.index == o.source.index | d.index == o.target.index ? 1 : 0.1;
+        });
+
+        //Reduce the op
+
+        toggle = 1;
+    } else {
+        //Put them back to opacity=1
+        nodes_img.style("opacity", 1);
+        edges_line.style("opacity", 1);
+        toggle = 0;
+    }
+
+}
+
+//---End Insert---

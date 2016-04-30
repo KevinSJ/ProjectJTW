@@ -17,7 +17,9 @@ var characters;
 var rel;
 var output;
 
-new Character().fetchAll().then(function (characters) {
+new Character().query(function (qb) {
+    qb.orderBy('ID', 'ASC')
+}).fetchAll().then(function (characters) {
     characters = characters.toJSON();
     characters = '{"nodes"' + ":" + JSON.stringify(characters) + ',';
     output = characters;
@@ -26,7 +28,9 @@ new Character().fetchAll().then(function (characters) {
     console.log(error);
 });
 
-new Relations().fetchAll().then(function (relations) {
+new Relations().query(function (qb) {
+    qb.select('relation', 'source', 'target');
+}).fetchAll().then(function (relations) {
     rel = relations.toJSON();
     rel = '"edges"' + ":" + JSON.stringify(rel) + '}';
     output = output + rel;
