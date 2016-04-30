@@ -2,20 +2,20 @@
   "nodes": [
     {
       "name": "Tripitaka",
-      "image": "Resources/tripitaka.jpg",
+      "image": "images/tripitaka.jpg",
       "description": "Name Tang San Zang Meaning When he became brothers with the Emperor of Great Tang he was given the surname of Tang."
     },
     {
       "name": "Sun Wukong",
-      "image": "Resources/SunWuKong.jpg"
+      "image": "images/SunWuKong.jpg"
     },
     {
       "name": "Pigsy",
-      "image": "Resources/pigsy.jpg"
+      "image": "images/pigsy.jpg"
     },
     {
       "name": "Sandy",
-      "image": "Resources/Sandy.jpg"
+      "image": "images/Sandy.jpg"
     }
   ],
   "edges": [
