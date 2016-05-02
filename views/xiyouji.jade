@@ -1,0 +1,54 @@
+//
+   Created by Administrator on 2016/4/29.
+
+html
+    head
+        meta(charset='utf-8')
+        title Journey To the West Relationship Map
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    style.
+        .nodetext {
+            font-size: 12px;
+            font-family: SimSun;
+            fill: #000000;
+        }
+
+        .linetext {
+            font-size: 12px;
+            font-family: SimSun;
+            fill: #0000FF;
+            fill-opacity: 0.0;
+        }
+    body
+        #modal.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal')
+                            | &times;
+
+                        h4.modal-title
+                    .modal-body
+                        #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                            .panel.panel-default
+                                #headingOne.panel-heading(role='tab')
+                                    h4.panel-title
+                                        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                                            | Who is he/she ?
+                                #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                                    .panel-body
+                            .panel.panel-default
+                                #headingTwo.panel-heading(role='tab')
+                                    h4.panel-title
+                                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                                            | Why is he/she important (in one sentence)?
+                                #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                                    .panel-body
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        script(type='text/javascript').
+            var json = !{json};
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+        script(src='/javascripts/bootstrap.min.js')
+        script(src='/javascripts/d3.min.js', charset='utf-8')
+        script(src='/javascripts/main.js')

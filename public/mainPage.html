@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Journey To the West Relationship Map</title>
+</head>
+<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+<style>
+    .nodetext {
+        font-size: 12px;
+        font-family: SimSun;
+        fill: #000000;
+    }
+
+    .linetext {
+        font-size: 12px;
+        font-family: SimSun;
+        fill: #0000FF;
+        fill-opacity: 0.0;
+    }
+
+</style>
+<body>
+<div id="modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">                        &times;
+                </button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                   aria-expanded="true" aria-controls="collapseOne">
+                                    Who is he/she ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                             aria-labelledby="headingOne">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What did he/she do ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Why do we care ?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingThree">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/d3.min.js" charset="utf-8"></script>
+<script src="javascripts/main.js"></script>
+</body>
+</html>
