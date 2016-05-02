@@ -4,10 +4,7 @@
 // In a file named something like bookshelf.js
 var dbConfig = {
     client: 'pg',
-    connection: {
-        url: process.env.DATABASE_URL,
-        charset: 'utf8'
-    }
+    connection:process.env.DATABASE_URL
 };
 var knex = require('knex')(dbConfig);
 module.exports = require('bookshelf')(knex);
