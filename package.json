@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "4.4.3"        
+    "node": "4.4.3"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -18,7 +18,7 @@
     "jade": "~1.11.0",
     "knex": "^0.10.0",
     "morgan": "~1.6.1",
-    "pg": "^4.5.5",
+    "pg": "4.5.5",
     "serve-favicon": "~2.3.0"
   }
 }
