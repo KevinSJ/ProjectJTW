@@ -5,10 +5,10 @@
 var dbConfig = {
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: '930709',
-        database: 'XiyoujiDB',
+        host: 'process.env.DATABASE_URL',
+        user: 'wxmrllhejzubrs',
+        password: 'lb0_xWbKGJj4TxAtEUPiiz59Qc',
+        database: 'd8aah13sdfn20u',
         charset: 'utf8'
     }
 };
