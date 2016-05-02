@@ -5,10 +5,10 @@
 var dbConfig = {
     client: 'pg',
     connection: {
-        host: 'process.env.DATABASE_URL',
-        user: 'wxmrllhejzubrs',
-        password: 'lb0_xWbKGJj4TxAtEUPiiz59Qc',
-        database: 'd8aah13sdfn20u',
+        host: process.env.DATABASE_URL,
+        user: 'vlwnhvzahpljwk',
+        password: 'qKyJ6g1Z2UzbgLcbzCishijr0d',
+        database: 'dkkgl4n602v55',
         charset: 'utf8'
     }
 };
