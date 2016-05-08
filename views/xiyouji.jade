@@ -20,32 +20,7 @@ html
             fill-opacity: 0.0;
         }
     body
-        #modal.modal.fade(role='dialog')
-            .modal-dialog.modal-lg
-                .modal-content
-                    .modal-header
-                        button.close(type='button', data-dismiss='modal')
-                            | &times;
 
-                        h4.modal-title
-                    .modal-body
-                        #accordion.panel-group(role='tablist', aria-multiselectable='true')
-                            .panel.panel-default
-                                #headingOne.panel-heading(role='tab')
-                                    h4.panel-title
-                                        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
-                                            | Who is he/she ?
-                                #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-                                    .panel-body
-                            .panel.panel-default
-                                #headingTwo.panel-heading(role='tab')
-                                    h4.panel-title
-                                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
-                                            | Why is he/she important (in one sentence)?
-                                #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-                                    .panel-body
-                    .modal-footer
-                        button.btn.btn-default(type='button', data-dismiss='modal') Close
         nav.navbar.navbar-inverse
             .container-fluid
                 .navbar-header
@@ -60,11 +35,35 @@ html
         .col-md-8
 
         .col-md-4
-            p hello world
+            .row
+                .col-lg-12
+                    h2 Instruction: Hover over the character picture to see character specific relations. Double click on the images to see character related information magically appears below!
+            #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                .panel.panel-default
+                    #headingOne.panel-heading(role='tab')
+                        h4.panel-title
+                            a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                                h3 Who is he/she ?
+                    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                        .panel-body
+                .panel.panel-default
+                    #headingTwo.panel-heading(role='tab')
+                        h4.panel-title
+                            a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                                h3 Why is he/she important (in one sentence)?
+                    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                        .panel-body
+            hr
+            footer
+                .row
+                    .col-lg-12
+                        p Copyright &copy; KevinSJ 2016
 
         script(type='text/javascript').
             var json = !{json};
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+        script(type='text/javascript', src='http://code.jquery.com/ui/1.11.0/jquery-ui.min.js')
+        script(type='text/javascript', src='http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css')
         script(src='/javascripts/bootstrap.min.js')
         script(src='/javascripts/d3.min.js', charset='utf-8')
         script(src='/javascripts/main.js')

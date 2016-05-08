@@ -49,6 +49,8 @@ var nodes_img = svg.selectAll("image")
         return d.Image;
     })
     .on("mouseover", function (d, i) {
+        connectedNodes(d);
+
         //显示连接线上的文字
         edges_text.style("fill-opacity", function (edge) {
             if (edge.source === d || edge.target === d) {
@@ -56,7 +58,7 @@ var nodes_img = svg.selectAll("image")
             }
         });
     })
-    /* .on('click', function (d) {
+    .on('click', function (d) {
         d3.select(".modal-title").html(d.Name);
 
         d3.select("#collapseOne .panel-body").html(d.Description);
@@ -65,11 +67,11 @@ var nodes_img = svg.selectAll("image")
 
         //d3.select("#collapseThree .panel-body").html(d.);
 
-        $('#modal').modal({
-            keyboard: false
-        });
-     })*/
+
+    })
     .on("mouseout", function (d, i) {
+        connectedNodes();
+
         //隐去连接线上的文字
         edges_text.style("fill-opacity", function (edge) {
             if (edge.source === d || edge.target === d) {
@@ -77,8 +79,8 @@ var nodes_img = svg.selectAll("image")
             }
         });
     })
-    .call(force.drag)
-    .on('dblclick', connectedNodes); //Added code
+    .call(force.drag);
+//.on('dblclick', connectedNodes); //Added code
 
 var text_dx = -20;
 var text_dy = 20;
@@ -143,6 +145,8 @@ force.on("tick", function () {
         return d.y + img_w / 2;
     });
 });
+
+/*Highlighting part, source: http://www.coppelia.io/2014/07/an-a-to-z-of-extra-features-for-the-d3-force-layout/*/
 //Toggle stores whether the highlighting is on
 var toggle = 0;
 
@@ -160,10 +164,10 @@ function neighboring(a, b) {
     return linkedByIndex[a.index + "," + b.index];
 }
 
-function connectedNodes() {
+function connectedNodes(d) {
     if (toggle == 0) {
         //Reduce the opacity of all but the neighbouring nodes
-        var d = d3.select(this).node().__data__;
+        //var d = d3.select(this).node().__data__;
         nodes_img.style("opacity", function (o) {
             return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
         });
@@ -185,3 +189,4 @@ function connectedNodes() {
 }
 
 //---End Insert---
+/*End of highlighting part*/

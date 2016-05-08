@@ -13,7 +13,6 @@ var Relations = bookshelf.Model.extend({
     tableName: 'Relations'
 });
 
-var characters;
 var rel;
 var output;
 
@@ -40,7 +39,7 @@ new Relations().query(function (qb) {
 });
 
 router.get('/', function (req, res, next) {
-    // console.log(output);
+    console.log(output);
     res.render('xiyouji', {json: (output)});
 });
 
