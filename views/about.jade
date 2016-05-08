@@ -1,0 +1,68 @@
+//
+   Created by Kevin on 2016/5/7.
+
+extends layout
+block extraHeader
+    style.
+        #techUsed {
+            list-style-type: none;
+        }
+
+        #techUsed li {
+            display: inline;
+        }
+
+        #changeLog {
+            list-style-type: none;
+        }
+
+block content
+    nav.navbar.navbar-inverse
+        .container-fluid
+            .navbar-header
+                a.navbar-brand(href='#') ProjectJTW
+            ul.nav.navbar-nav
+                li
+                    a(href='/') Home
+                li
+                    a(href='/xiyouji') Xiyouji Relation
+                li.active
+                    a(href='/about') About
+    .container
+        .row
+            .col-lg-12
+                h1.page-header About me
+                p I am a to-be alumni of UW-Madison, graduated with a Bachelor of Science in Computer Science, I am actively seeking a job in Java development.
+                | You can Contact me at sjiang42#wisc.edu
+        .row
+            .col-lg-12
+                h2.page-header About this project
+                p This project serves as the final project for E Asian 371 Journey to the West taught by Professor Rania Huntington
+                | The intended purpose for this site is to teach or help students familiarize themselves with the Journey to the West.
+                | This also serves as a side project where I try the technologies that I am interested in.
+        .row
+            .col-lg-12
+                h3.page-header Technologies used
+                ul#techUsed
+                    li
+                        img(src = 'images/heroku.png')
+                    li
+                        img(src ='images/nodejs-128.png')
+                    li
+                        img(src = 'images/psql.PNG')
+                    li
+                        img(src = 'images/d3_logo.png')
+                    li
+                        img(src = 'images/bootstrape.png')
+
+
+        .row
+            .col-lg-12
+                h4.page-header Changelog
+                ul#changeLog
+                    li 05-07-2016 Website with basic functionality is up and running. The only feature is relationship mapping for now.
+        hr
+        footer
+            .row
+                .col-lg-12
+                    p Copyright &copy; KevinSJ 2016

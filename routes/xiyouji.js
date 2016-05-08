@@ -23,7 +23,7 @@ new Character().query(function (qb) {
     characters = characters.toJSON();
     characters = '{"nodes"' + ":" + JSON.stringify(characters) + ',';
     output = characters;
-    console.log((characters));
+    // console.log((characters));
 }).catch(function (error) {
     console.log(error);
 });
@@ -34,17 +34,14 @@ new Relations().query(function (qb) {
     rel = relations.toJSON();
     rel = '"edges"' + ":" + JSON.stringify(rel) + '}';
     output = output + rel;
-    console.log((rel));
+    // console.log((rel));
 }).catch(function (error) {
     console.log(error);
 });
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
-
-    console.log(output);
+    // console.log(output);
     res.render('xiyouji', {json: (output)});
-    //res.sendFile(path.join(__dirname, '../public', 'mainPage.html'));
 });
 
 module.exports = router;

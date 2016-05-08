@@ -1,5 +1,5 @@
 //
-   Created by Administrator on 2016/4/29.
+   Created by Kevin on 2016/4/29.
 
 html
     head
@@ -46,6 +46,22 @@ html
                                     .panel-body
                     .modal-footer
                         button.btn.btn-default(type='button', data-dismiss='modal') Close
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='#') ProjectJTW
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li.active
+                        a(href='#') Xiyouji Relation
+                    li
+                        a(href='/about') About
+        .col-md-8
+
+        .col-md-4
+            p hello world
+
         script(type='text/javascript').
             var json = !{json};
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')

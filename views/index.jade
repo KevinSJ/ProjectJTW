@@ -1,5 +1,15 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+
+    nav.navbar.navbar-inverse
+        .container-fluid
+            .navbar-header
+                a.navbar-brand(href='#') ProjectJTW
+            ul.nav.navbar-nav
+                li.active
+                    a(href='#') Home
+                li
+                    a(href='/xiyouji') Xiyouji Relation
+                li
+                    a(href='/about') About

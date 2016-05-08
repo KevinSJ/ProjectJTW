@@ -10,5 +10,6 @@
     <orderEntry type="library" name="d3context" level="project" />
     <orderEntry type="library" name="xiyouji node_modules" level="project" />
     <orderEntry type="library" name="jQuery-2.0.0" level="application" />
+    <orderEntry type="library" name="ProjectJTY node_modules" level="project" />
   </component>
 </module>

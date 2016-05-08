@@ -1,4 +1,4 @@
-﻿-- Database: "XiyoujiDB"
+-- Database: "XiyoujiDB"
 
 -- DROP DATABASE "XiyoujiDB";
 

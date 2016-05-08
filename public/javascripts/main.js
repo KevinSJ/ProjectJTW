@@ -8,7 +8,7 @@ var img_w = 77;
 var img_h = 90;
 var showingText = false;
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select(".col-md-8").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -18,9 +18,9 @@ var force = d3.layout.force()
     .nodes(root.nodes)
     .links(root.edges)
     .size([width, height])
-    .linkDistance(450)
-    .gravity(0.7)
-    .charge(-4500)
+    .linkDistance(550)
+    .gravity(0.15)
+    .charge(-5500)
     .start();
 
 var edges_line = svg.selectAll("line")
