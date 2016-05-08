@@ -22,24 +22,25 @@ new Character().query(function (qb) {
     characters = characters.toJSON();
     characters = '{"nodes"' + ":" + JSON.stringify(characters) + ',';
     output = characters;
+    new Relations().query(function (qb) {
+        qb.select('relation', 'source', 'target');
+    }).fetchAll().then(function (relations) {
+        rel = relations.toJSON();
+        rel = '"edges"' + ":" + JSON.stringify(rel) + '}';
+        output = output + rel;
+        // console.log((rel));
+    }).catch(function (error) {
+        console.log(error);
+    });
     // console.log((characters));
 }).catch(function (error) {
     console.log(error);
 });
 
-new Relations().query(function (qb) {
-    qb.select('relation', 'source', 'target');
-}).fetchAll().then(function (relations) {
-    rel = relations.toJSON();
-    rel = '"edges"' + ":" + JSON.stringify(rel) + '}';
-    output = output + rel;
-    // console.log((rel));
-}).catch(function (error) {
-    console.log(error);
-});
+
 
 router.get('/', function (req, res, next) {
-    console.log(output);
+    //console.log(output);
     res.render('xiyouji', {json: (output)});
 });
 

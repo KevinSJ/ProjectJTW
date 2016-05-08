@@ -18,9 +18,9 @@ var force = d3.layout.force()
     .nodes(root.nodes)
     .links(root.edges)
     .size([width, height])
-    .linkDistance(550)
-    .gravity(0.15)
-    .charge(-5500)
+    .linkDistance(500)
+    .gravity(0.05)
+    .charge(-9000)
     .start();
 
 var edges_line = svg.selectAll("line")
@@ -172,6 +172,10 @@ function connectedNodes(d) {
             return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
         });
 
+        nodes_text.style("opacity", function (o) {
+            return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
+        });
+
         edges_line.style("opacity", function (o) {
             return d.index == o.source.index | d.index == o.target.index ? 1 : 0.1;
         });
@@ -182,6 +186,7 @@ function connectedNodes(d) {
     } else {
         //Put them back to opacity=1
         nodes_img.style("opacity", 1);
+        nodes_text.style("opacity", 1);
         edges_line.style("opacity", 1);
         toggle = 0;
     }
